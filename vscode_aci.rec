@@ -8,10 +8,18 @@ From: centos:centos7
     exec /usr/bin/code "$@"
 
 %post
-    yum groupinstall -y "Development Tools"
+   yum install -y devtoolset-7-gcc*
+    scl enable devtoolset-7 bash
+    yum -y groups install "Development Tools"
+    yum -y groups install "Base"
 
     #vscode
     rpm --import https://packages.microsoft.com/keys/microsoft.asc
     sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
     yum check-update
     yum install code
+
+    mkdir -p /storage/home
+    mkdir -p /storage/work
+    mkdir -p /gpfs/scratch
+    mkdir -p /gpfs/group
