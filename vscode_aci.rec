@@ -8,8 +8,17 @@ From: centos:centos7
     exec /usr/bin/code "$@"
 
 %post
-    yum -y groups install "Development Tools"
-    yum -y groups install "Base"
+    yum install -y epel-release
+    yum install -y terminator
+    yum install -y centos-release-scl
+    yum install -y vte-devel
+    yum install -y vte291-devel
+    yum install -y vte-profile
+    yum install -y centos-release-scl
+    yum -y install devtoolset-7
+    scl enable devtoolset-7 bash
+    yum -y group install "Development Tools"
+    yum -y group install "Base"
 
     #vscode
     rpm --import https://packages.microsoft.com/keys/microsoft.asc
