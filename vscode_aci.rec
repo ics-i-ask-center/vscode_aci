@@ -8,8 +8,6 @@ From: centos:centos7
     exec /usr/bin/code "$@"
 
 %post
-   yum install -y devtoolset-7-gcc*
-    scl enable devtoolset-7 bash
     yum -y groups install "Development Tools"
     yum -y groups install "Base"
 
