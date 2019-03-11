@@ -9,26 +9,18 @@ From: centos:centos7
 
 %post
 
-    sudp yum group install "Development Tools"
-    sudo yum group install "Development Tools"
     sudo yum groups install "Development Tools"
     sudo yum groups install "Base"
     sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 
-    sudo yum install sshfs
-    sudo yum install fuse-sshfs
     sudo yum install epel-release
     wget https://github.com/libfuse/sshfs/releases/download/sshfs_2.8/sshfs-2.8.tar.gz
-    tar sshfs-2.8.tar.gz
     tar xvf sshfs-2.8.tar.gz
 
     cd sshfs-2.8/
-    ./config
     ./configure
     sudo yum install fuse
-    sudo yum install fuse-sshs
     sudo yum install fuse-sshfs
-    sudo yum group install "Development Tools"
     ./configure
 
     sudo yum install -y gcc-c++
