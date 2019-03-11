@@ -8,23 +8,45 @@ From: centos:centos7
     exec /usr/bin/code "$@"
 
 %post
-    yum install -y epel-release
-    yum install -y terminator
-    yum install -y centos-release-scl
-    yum install -y vte-devel
-    yum install -y vte291-devel
-    yum install -y vte-profile
-    yum install -y centos-release-scl
-    yum -y install devtoolset-7
-    scl enable devtoolset-7 bash
-    yum -y group install "Development Tools"
-    yum -y group install "Base"
 
-    #vscode
+    sudp yum group install "Development Tools"
+    sudo yum group install "Development Tools"
+    sudo yum groups install "Development Tools"
+    sudo yum groups install "Base"
+    sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+
+    sudo yum install sshfs
+    sudo yum install fuse-sshfs
+    sudo yum install epel-release
+    wget https://github.com/libfuse/sshfs/releases/download/sshfs_2.8/sshfs-2.8.tar.gz
+    tar sshfs-2.8.tar.gz
+    tar xvf sshfs-2.8.tar.gz
+
+    cd sshfs-2.8/
+    ./config
+    ./configure
+    sudo yum install fuse
+    sudo yum install fuse-sshs
+    sudo yum install fuse-sshfs
+    sudo yum group install "Development Tools"
+    ./configure
+
+    sudo yum install -y gcc-c++
+    sudo yum install -y libX11-devel
+    sudo yum install -y fontconfig-devel
+    sudo yum install -y libXcursor-devel
+    sudo yum install -y libXext-devel
+    sudo yum install -y libXfixes
+    sudo yum install -y libXft-devel
+    sudo yum install -y libXi-devel
+    sudo yum install -y libXrandr-devel
+    sudo yum install -y libXrender-devel
+
     rpm --import https://packages.microsoft.com/keys/microsoft.asc
-    sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+    sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+    sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
     yum check-update
-    yum install code
+    sudo yum install code
 
     mkdir -p /storage/home
     mkdir -p /storage/work
