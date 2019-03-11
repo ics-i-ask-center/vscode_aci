@@ -1,15 +1,31 @@
-BootStrap: docker
-From: centos:centos7
+BootStrap: yum
+OSVersion: 7
+MirrorURL: http://mirror.centos.org/centos-%{OSVERSION}/%{OSVERSION}/os/$basearch/
+Include: yum
+%setup
 
+%files
 
-%environment
+%environment 
+
 
 %runscript
     exec /usr/bin/code "$@"
 
 %post
-
-    yum groups install "Development Tools"
+    # commands to be executed inside container during bootstrap
+    # add python and install some packages
+    yum install -y epel-release
+    yum install -y terminator
+    yum install -y centos-release-scl
+    yum install -y vte-devel
+    yum install -y vte291-devel
+    yum install -y vte-profile
+    yum install -y centos-release-scl
+    yum -y install devtoolset-7
+#    yum install -y devtoolset-7-gcc*
+    scl enable devtoolset-7 bash
+    yum -y groups install "Development Tools"
     yum groups install "Base"
     rpm --import https://packages.microsoft.com/keys/microsoft.asc
 
