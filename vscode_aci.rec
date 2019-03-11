@@ -24,11 +24,11 @@ Include: yum
     yum install -y centos-release-scl
     yum -y install devtoolset-7
     scl enable devtoolset-7 bash
+    yum clean all
     yum groups mark install "Development Tools"
     yum groups mark convert "Development Tools"
-    yum -y groups install "Development Tools"
+    yum -y groups install "Development Tools" --setopt=group_package_types=mandatory,default,optional
     yum groups install "Base"
-    rpm --import https://packages.microsoft.com/keys/microsoft.asc
 
     yum install epel-release
     wget https://github.com/libfuse/sshfs/releases/download/sshfs_2.8/sshfs-2.8.tar.gz
@@ -51,7 +51,6 @@ Include: yum
     yum install -y libXrandr-devel
     yum install -y libXrender-devel
 
-    rpm --import https://packages.microsoft.com/keys/microsoft.asc
     rpm --import https://packages.microsoft.com/keys/microsoft.asc
     sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
     yum check-update
