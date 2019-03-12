@@ -24,10 +24,7 @@ Include: yum
     yum install -y centos-release-scl
     yum -y install devtoolset-7
     scl enable devtoolset-7 bash
-    yum -y clean all
-    yum -y groups mark install "Development Tools"
-    yum -y groups mark convert "Development Tools"
-    yum -y groups install "Development Tools" --setopt=group_package_types=mandatory,default,optional
+    yum -y groups install "Development Tools"
     yum -y groups install "Base"
 
     yum install -y epel-release
