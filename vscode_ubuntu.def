@@ -1,0 +1,77 @@
+BootStrap: docker
+From: ubuntu:16.04
+
+%labels
+    Author: Jason C. Nucciarone
+    Maintainer: Jason C. Nucciarone
+    Owner: Jason C. Nucciarone
+    Version: v1.2
+
+%runscript
+    exec $(which code) "$@"
+
+%post
+    ## Update repository list
+    apt-get update -y
+    
+    ## Install my essentials
+    apt-get install build-essential wget curl file git libreadline6 \
+        gdebi-core locales-all moreutils parallel -y
+
+    ## Software needed to open vscode
+    apt install libgl1-mesa-glx libgl1-mesa-dev libdbus-1-3 libdbus-1-dev \
+        libnss3 libxcomp3 libxcomposite1 libxcomposite-dev libxcursor1 \
+        libxcursor-dev libxi6 libxi-dev libxtst6 libxtst-dev libxt6 \
+        libxt-dev libasound2 -y
+
+    ## Graphical libraries needed to open on Roar
+    apt install libcanberra-gtk-module libcanberra-gtk3-module -y
+
+    ## Set language for vscode
+    export LC_ALL=en_US.utf8
+    export LANG=en_US.utf8
+
+    ## Install miniconda3
+    if [ ! -d /usr/local/miniconda ]; then
+        wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh \
+       	    -O ~/anaconda.sh && \
+	    bash ~/anaconda.sh -b -p /usr/local/miniconda && \
+	    rm ~/anaconda.sh
+    fi
+    
+    ## Initialize environment and update conda
+    export PATH=/usr/local/miniconda/bin:${PATH}
+    export LD_LIBRARY_PATH=/usr/local/miniconda/lib:${LD_LIBRARY_PATH}
+    conda update conda
+
+    ## Install spack
+    git clone https://github.com/spack/spack.git
+    mv spack /usr/local
+
+    ## Install vscode
+    wget http://10.1.10.2/deb_installers/vscode/code_1.50.1-1602600906_amd64.deb \
+        -O ~/vscode_install.deb
+    gdebi -n ~/vscode_install.deb
+    apt -f install
+
+    ## Bind mounts for Roar
+    mkdir -p /storage/home
+    mkdir -p /storage/work
+    mkdir -p /gpfs/scratch
+    mkdir -p /gpfs/group
+    mkdir -p /var/spool/torque
+
+    ## Free up some space inside the container
+    conda clean --all -y && rm -rf ~/vscode_install.deb
+
+%environment
+    export SPACK_ROOT=/usr/local/spack
+    export PATH=/usr/local/miniconda/bin:${SPACK_ROOT}/bin:${PATH}
+    export LD_LIBRARY_PATH=/usr/local/miniconda/lib:${LD_LIBRARY_PATH}
+    export LC_ALL=en_US.UTF-8
+    export LANG=en_US.UTF-8
+
+%help
+    If you have any questions or issues regarding
+    the use of this container then please contact
+    the ICDS-iASK center at iask@ics.psu.edu
