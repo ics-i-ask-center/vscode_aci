@@ -1,0 +1,21 @@
+BootStrap: library
+From: nucci/default/vscode:latest
+
+%post
+    apt-get update -y
+    export SPACK_ROOT=/usr/local/spack
+    export PATH=/usr/local/miniconda/bin:${SPACK_ROOT}/bin:${PATH}
+    export LD_LIBRARY_PATH=/usr/local/miniconda/lib:${LD_LIBRARY_PATH}
+    export LC_ALL=en_US.UTF-8
+    export LANG=en_US.UTF-8 
+
+    #---------- Write your code here ----------#
+
+%environment
+    export SPACK_ROOT=/usr/local/spack
+    export PATH=/usr/local/miniconda/bin:${SPACK_ROOT}/bin:${PATH}
+    export LD_LIBRARY_PATH=/usr/local/miniconda/lib:${LD_LIBRARY_PATH}
+    export LC_ALL=en_US.UTF-8
+    export LANG=en_US.UTF-8
+
+    #---------- Write your code here ----------#

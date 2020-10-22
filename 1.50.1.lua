@@ -22,7 +22,7 @@ iask@ics.psu.edu]])
 
 whatis("Description: Visual Studio Code is a source code editor developed by Microsoft for Windows, Linux and macOS. It includes support for debugging, embedded Git control, syntax highlighting, intelligent code completion, snippets, and code refactoring. (from wikipedia)")
 whatis("Version: 1.50.1")
-whatis('URL: https://code.visualstudio.com/')
+whatis("URL: https://code.visualstudio.com/")
 whatis("Pull Command: singularity pull library://nucci/default/vscode:latest")
 
 local vscodeLaunch = "$(command -v singularity) -s run --bind ${HOME}:/run /gpfs/group/dml129/default/sw/vscode/vscode_latest.sif $@"
