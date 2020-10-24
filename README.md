@@ -37,17 +37,32 @@ $ code
 If there is an executable inside the VSCode container that you wish to use, simply use the following command:
 
 ```bash
-$ code-exec ARGUMENTS
+$ code-exec <command> <options> <arguments>
 ```
 
 # Installing your own copy
 Todo
 
 # Bootstrapping
-Todo
+In order to use this container as the base for other singularity images (a.k.a bootstrap), then please use the one of the base definition files stored in `/bootstrap`. You can download the bootstrap definition files by either cloning this repository:
+
+```bash
+$ git clone https://github.com/NucciTheBoss/vscode_aci.git
+```
+
+and copying the files, or you can also download them using `wget`:
+
+```bash
+$ wget https://raw.githubusercontent.com/NucciTheBoss/vscode_aci/master/bootstrap/vscode_library_bootstrap.def
+$ wget wget https://raw.githubusercontent.com/NucciTheBoss/vscode_aci/master/bootstrap/vscode_local_bootstrap.def
+```
+
+There are slight differences between the two bootstrap files. You should use `vscode_library_bootstrap.def` if you want to download the VSCode container from the Sylab Cloud before building your container. You should use `vscode_local_bootstrap.def` if you already have a copy of the container on your machine.
+
+**Note:** If you are using the Sylabs Remote Builder to build your own container then you should use `vscode_library_bootstrap.def`.
 
 # Custom Deployment
-Todo
+If you are looking for a custom deployment of VSCode (e.g. specific software, specialized environment, etc.), then please contact the ICDS i-ASK center at iask@ics.psu.edu for assistance. We can help you build the custom VSCode container you need.
 
 # License
 This repository is licensed under the GNU General Public License v3.0. 
