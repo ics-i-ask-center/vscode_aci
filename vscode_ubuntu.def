@@ -47,6 +47,7 @@ From: ubuntu:16.04
     ## Install spack
     git clone https://github.com/spack/spack.git
     mv spack /usr/local
+    . /usr/local/spack/share/spack/setup-env.sh
 
     ## Install vscode
     wget http://10.1.10.2/deb_installers/vscode/code_1.50.1-1602600906_amd64.deb \

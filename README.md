@@ -1,6 +1,6 @@
 # Table of Contents
 
-* [Introduction](#introduction)
+* [Overview](#Overview)
 * [Accessing and using vscode on Roar](#accessing-and-using-vscode-on-roar)
 * [Installing your own copy](#installing-your-own-copy)
 * [Bootstrapping](#bootstrapping)
@@ -8,8 +8,17 @@
 * [License](#license)
 * [Troubleshooting](#troubleshooting)
 
-# Introduction
-[VSCode](https://code.visualstudio.com/) is a powerful, yet simple source code editor made for MacOS, Windows, and Linux. This repository hosts Roar's implementation of VSCode. The VSCode on Roar is installed inside a [Singularity](https://sylabs.io/) container, and can be loaded using [Lmod](https://lmod.readthedocs.io/en/latest/).
+# Overview
+
+![Singularity Version](https://img.shields.io/badge/singularity-3.5.2-informational)
+![Ubuntu](https://img.shields.io/badge/image%20base-ubuntu%20v16.04%20LTS-important)
+![vscode](https://img.shields.io/badge/vscode-v1.50.1-blue)
+![spack](https://img.shields.io/badge/spack-v0.15.4-blue)
+![conda](https://img.shields.io/badge/conda-v4.9.0-blue)
+![GitHub](https://img.shields.io/github/license/NucciTheBoss/vscode_aci)
+
+
+[VSCode](https://code.visualstudio.com/) is a powerful, yet simple source code editor made for MacOS, Windows, and Linux. This repository hosts Roar's implementation of VSCode. The VSCode on Roar is installed inside a [Singularity](https://sylabs.io/) container, and can be loaded using [Lmod](https://lmod.readthedocs.io/en/latest/). The container also comes with [spack](https://spack.readthedocs.io/en/latest/) and [conda](https://docs.conda.io/en/latest/miniconda.html) package managers preinstalled.
 
 # Accessing and using VSCode on Roar
 In order to access VSCode on Roar, you only need to use the following commands:
