@@ -2,7 +2,6 @@
 
 * [Overview](#Overview)
 * [Accessing and using vscode on Roar](#accessing-and-using-vscode-on-roar)
-* [Installing your own copy](#installing-your-own-copy)
 * [Bootstrapping](#bootstrapping)
 * [Custom Deployment](#custom-deployment)
 * [License](#license)
@@ -40,9 +39,6 @@ If there is an executable inside the VSCode container that you wish to use, simp
 $ code-exec <command> <options> <arguments>
 ```
 
-# Installing your own copy
-Todo
-
 # Bootstrapping
 In order to use this container as the base for other singularity images (a.k.a bootstrap), then please use the one of the base definition files stored in `/bootstrap`. You can download the bootstrap definition files by either cloning this repository:
 
@@ -54,7 +50,7 @@ and copying the files, or you can also download them using `wget`:
 
 ```bash
 $ wget https://raw.githubusercontent.com/NucciTheBoss/vscode_aci/master/bootstrap/vscode_library_bootstrap.def
-$ wget wget https://raw.githubusercontent.com/NucciTheBoss/vscode_aci/master/bootstrap/vscode_local_bootstrap.def
+$ wget https://raw.githubusercontent.com/NucciTheBoss/vscode_aci/master/bootstrap/vscode_local_bootstrap.def
 ```
 
 There are slight differences between the two bootstrap files. You should use `vscode_library_bootstrap.def` if you want to download the VSCode container from the Sylab Cloud before building your container. You should use `vscode_local_bootstrap.def` if you already have a copy of the container on your machine.
