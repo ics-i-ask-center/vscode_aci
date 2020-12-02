@@ -47,8 +47,7 @@ $ code-exec <command> <options> <arguments>
 
 **NOTE:** In order to have system-wide compatability, the VSCode container uses Ubuntu 16.04 LTS as the base. To have Ubuntu 20.04.1 LTS as the base, you will need to install your own local module.
 
-#### Imporant
-Please note that the RHEL6 container will work both on RHEL7 and RHEL6, however, the RHEL7 container will only work on RHEL7.
+**Important:** Please note that the RHEL6 container will work both on RHEL7 and RHEL6, however, the RHEL7 container will only work on RHEL7.
 
 ### Use a local module in your work directory (RHEL7 and RHEL6)
 
@@ -113,8 +112,7 @@ And if there is an executable inside the VSCode container that you wish to use, 
 $ code-exec <command> <options> <arguments>
 ```
 
-#### Imporant
-Please note that the RHEL6 container will work both on RHEL7 and RHEL6, however, the RHEL7 container will only work on RHEL7.
+**Important:** Please note that the RHEL6 container will work both on RHEL7 and RHEL6, however, the RHEL7 container will only work on RHEL7.
 
 # Bootstrapping
 In order to use this container as the base for other singularity images (a.k.a bootstrap), then please use the one of the base definition files stored in `/bootstrap`. You can download the bootstrap definition files by either cloning this repository:
