@@ -10,7 +10,7 @@ $ code
 
 To run a executable from inside the vscode container, use
 the following command:
-$ code-exec ARGUMENTS
+$ code-exec <command> <arguments> <flags>
 
 Legacy:
 To launch vscode, use the follow command in your terminal:
