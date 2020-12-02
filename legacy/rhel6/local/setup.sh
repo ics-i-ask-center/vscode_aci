@@ -10,10 +10,10 @@ if [ ! -d ${HOME}/work/sw/vscode ]; then
     mkdir -p ${HOME}/work/sw/vscode
 fi
 
-# Copy vscode_latest.sif and 1.51.1-local.lua to
+# Copy vscode_rhel6.sif and 1.51.1-local.lua to
 # respective locations
-cp vscode_latest.sif ${HOME}/work/sw/vscode/vscode_latest.sif
-cp 1.51.1-local.lua ${HOME}/work/sw/modules/vscode/1.51.1-local.lua
+cp vscode_rhel6.sif ${HOME}/work/sw/vscode/vscode_rhel6.sif
+cp 1.50.1-rhel6-local.lua ${HOME}/work/sw/modules/vscode/1.50.1-rhel6-local.lua
 
 # Adjust permissions accordingly
 chmod -R ug+rx ${HOME}/work/sw/modules
@@ -23,5 +23,5 @@ chmod -R ug+rx ${HOME}/work/sw/vscode
 echo "Installation of the vscode module has finished"
 echo -e "\nTo use vscode, enter the following commands in your terminal:\n"
 echo "module use ~/work/sw/modules"
-echo "module load vscode/1.15.1-local"
+echo "module load vscode/1.50.1-rhel6-local.lua"
 echo -e "\nIf you run into any issues please contact Jason at iask@ics.psu.edu"
