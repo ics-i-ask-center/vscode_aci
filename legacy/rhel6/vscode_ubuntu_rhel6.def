@@ -1,11 +1,11 @@
 BootStrap: docker
-From: ubuntu:20.04
+From: ubuntu:16.04
 
 %labels
     Author: Jason C. Nucciarone
     Maintainer: Jason C. Nucciarone
     Owner: Jason C. Nucciarone
-    Version: 2.0
+    Version: v1.2
 
 %runscript
     exec $(which code) "$@"
@@ -15,21 +15,17 @@ From: ubuntu:20.04
     apt-get update -y
     
     ## Install my essentials
-    apt-get install build-essential wget curl file git libreadline8 \
+    apt-get install build-essential wget curl file git libreadline6 \
         gdebi-core locales-all moreutils parallel -y
 
-    ## Set up timezone
-    export TZ=America/New_York
-    ln -snf /usr/share/zoneinfo/${TZ} /etc/localtime && echo ${TZ} > /etc/timezone
-
     ## Software needed to open vscode
-    apt-get install libgl1-mesa-glx libgl1-mesa-dev libdbus-1-3 libdbus-1-dev \
+    apt install libgl1-mesa-glx libgl1-mesa-dev libdbus-1-3 libdbus-1-dev \
         libnss3 libxcomp3 libxcomposite1 libxcomposite-dev libxcursor1 \
         libxcursor-dev libxi6 libxi-dev libxtst6 libxtst-dev libxt6 \
         libxt-dev libasound2 -y
 
     ## Graphical libraries needed to open on Roar
-    apt-get install libcanberra-gtk-module libcanberra-gtk3-module -y
+    apt install libcanberra-gtk-module libcanberra-gtk3-module -y
 
     ## Set language for vscode
     export LC_ALL=en_US.utf8
@@ -54,8 +50,7 @@ From: ubuntu:20.04
     . /usr/local/spack/share/spack/setup-env.sh
 
     ## Install vscode
-    ## Deb installer located on self-hosted file server
-    wget http://10.1.10.2/deb_installers/vscode/code_1.51.1-1605051630_amd64.deb \
+    wget http://10.1.10.2/deb_installers/vscode/code_1.50.1-1602600906_amd64.deb \
         -O ~/vscode_install.deb
     gdebi -n ~/vscode_install.deb
     apt -f install
