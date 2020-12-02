@@ -23,5 +23,5 @@ chmod -R ug+rx ${HOME}/work/sw/vscode
 echo "Installation of the vscode module has finished"
 echo -e "\nTo use vscode, enter the following commands in your terminal:\n"
 echo "module use ~/work/sw/modules"
-echo "module load vscode/1.15.1-local"
+echo "module load vscode/1.51.1-local"
 echo -e "\nIf you run into any issues please contact Jason at iask@ics.psu.edu"

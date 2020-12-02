@@ -23,5 +23,5 @@ chmod -R ug+rx ${HOME}/work/sw/vscode
 echo "Installation of the vscode module has finished"
 echo -e "\nTo use vscode, enter the following commands in your terminal:\n"
 echo "module use ~/work/sw/modules"
-echo "module load vscode/1.50.1-rhel6-local.lua"
+echo "module load vscode/1.50.1-rhel6-local"
 echo -e "\nIf you run into any issues please contact Jason at iask@ics.psu.edu"
