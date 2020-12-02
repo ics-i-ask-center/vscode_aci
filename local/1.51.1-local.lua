@@ -25,8 +25,8 @@ whatis("Version: 1.51.1")
 whatis("URL: https://code.visualstudio.com/")
 whatis("Pull Command: singularity pull library://nucci/default/vscode:latest")
 
-local vscodeLaunch = "$(command -v singularity) -s run --bind ${HOME}:/run /gpfs/group/dml129/default/sw/vscode/vscode_latest.sif $@"
-local execLaunch = "$(command -v singularity) -s exec --bind ${HOME}:/run /gpfs/group/dml129/default/sw/vscode/vscode_latest.sif $@"
+local vscodeLaunch = "$(command -v singularity) -s run --bind ${HOME}:/run ${HOME}/work/sw/vscode/vscode_latest.sif $@"
+local execLaunch = "$(command -v singularity) -s exec --bind ${HOME}:/run ${HOME}/work/sw/vscode/vscode_latest.sif $@"
 
 set_shell_function("code", vscodeLaunch)
 set_shell_function("code-exec", execLaunch)
