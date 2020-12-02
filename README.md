@@ -58,7 +58,7 @@ $ code-exec <command> <options> <arguments>
 If you planning on using VSCode with RHEL7, use the following commands to install the RHEL7 variant of the VSCode container:
 
 ```bash
-$ wget https://github.com/ics-i-ask-center/vscode_roar/archive/vscode_rhel7.tar.gz
+$ wget https://github.com/ics-i-ask-center/vscode_roar/releases/download/v2.0/vscode_rhel7.tar.gz
 $ tar -xzvf vscode_rhe7.tar.gz
 $ cd vscode_rhel7
 $ bash setup.sh
@@ -87,7 +87,7 @@ $ code-exec <command> <options> <arguments>
 If you planning on using VSCode with RHEL6, use the following commands to install the RHEL6 variant of the VSCode container:
 
 ```bash
-$ wget https://github.com/ics-i-ask-center/vscode_roar/archive/vscode_rhel6.tar.gz
+$ wget https://github.com/ics-i-ask-center/vscode_roar/releases/download/v1.2/vscode_rhel6.tar.gz
 $ tar -xzvf vscode_rhel6.tar.gz
 $ cd vscode_rhel6
 $ bash setup.sh
