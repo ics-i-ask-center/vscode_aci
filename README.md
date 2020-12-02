@@ -22,8 +22,8 @@
 # Accessing and using VSCode on Roar
 To use VSCode on Roar, you have two options:
 
-* [Use the system-wide VSCode module (RHEL6 only)](#use-the-system-wide-vscode-module-(rhel6-only))
-* [Use a local module in your work directory (RHEL7 and RHEL6)](#use-a-local-module-in-your-work-directory-(rhel7-and-rhel6))
+* [Use the system-wide VSCode module (RHEL6 only)](#use-the-system-wide-vscode-module-rhel6-only)
+* [Use a local module in your work directory (RHEL7 and RHEL6)](#use-a-local-module-in-your-work-directory-rhel7-and-rhel6)
 
 ### Use the system-wide VSCode module (RHEL6 only)
 In order to access the system-wide VSCode module on Roar, you only need to use the following commands:
